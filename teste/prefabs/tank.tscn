@@ -1,0 +1,136 @@
+[gd_scene load_steps=20 format=3 uid="uid://d3dho6lnxrw56"]
+
+[ext_resource type="Script" path="res://scripts/area_2d.gd" id="1_epksi"]
+[ext_resource type="Texture2D" uid="uid://w6ep5a23og5l" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/5 - Misc. universal tiles/right_move_blue-Sheet.png" id="2_0ff0p"]
+[ext_resource type="Texture2D" uid="uid://dqmwiwx5884dn" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/5 - Misc. universal tiles/right_explode_blue-Sheet.png" id="3_csyyc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux586"]
+atlas = ExtResource("2_0ff0p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivlc8"]
+atlas = ExtResource("2_0ff0p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxwc0"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wse62"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84th6"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld433"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6cej"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_basim"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pc1l"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv7tm"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1dvn"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx3dx"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgw66"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uacw2"]
+atlas = ExtResource("3_csyyc")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3arb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux586")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivlc8")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxwc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wse62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84th6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld433")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6cej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_basim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pc1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv7tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1dvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx3dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgw66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uacw2")
+}],
+"loop": false,
+"name": &"explodiu",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmlaw"]
+radius = 40.1995
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_epksi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, -42)
+scale = Vector2(2.92188, 2.66406)
+sprite_frames = SubResource("SpriteFrames_3arb8")
+animation = &"andando"
+autoplay = "andando"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -38)
+shape = SubResource("CircleShape2D_hmlaw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

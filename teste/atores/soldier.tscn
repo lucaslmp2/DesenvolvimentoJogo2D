@@ -425,8 +425,8 @@ shape = SubResource("CapsuleShape2D_6mia3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_r3qhm")
-animation = &"correndo"
-frame_progress = 0.122754
+animation = &"parado"
+frame_progress = 0.936375
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

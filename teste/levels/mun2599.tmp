@@ -1,7 +1,6 @@
 [gd_scene load_steps=25 format=4 uid="uid://dauixm5dlf8jk"]
 
 [ext_resource type="PackedScene" uid="uid://b8ax1ssgy04ea" path="res://prefabs/key.tscn" id="1_1sh8o"]
-[ext_resource type="PackedScene" uid="uid://d3dho6lnxrw56" path="res://prefabs/tank.tscn" id="1_64u1x"]
 [ext_resource type="PackedScene" uid="uid://4f5g45nqfm3l" path="res://atores/soldier.tscn" id="5_5n4ds"]
 [ext_resource type="Texture2D" uid="uid://bxq6b27jc8a2p" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/5 - Misc. universal tiles/warTileset_16x16.png" id="9_wmn3n"]
 [ext_resource type="Texture2D" uid="uid://buuj7mg8efkdp" path="res://craftpix-net-507107-free-soldier-sprite-sheets-pixel-art/War1/Pale/sun.png" id="11_tqx0e"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cuq1xruc2v5ug" path="res://craftpix-net-507107-free-soldier-sprite-sheets-pixel-art/War1/Pale/fence.png" id="16_6782y"]
 [ext_resource type="Texture2D" uid="uid://cy3hgwilctm40" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Bubbling_Oil_frames (16 x 32).png" id="16_opxl2"]
 [ext_resource type="Texture2D" uid="uid://d2yrddqlawwe" path="res://craftpix-net-507107-free-soldier-sprite-sheets-pixel-art/War1/Pale/road.png" id="17_t5ho3"]
+[ext_resource type="PackedScene" uid="uid://dva6fvvdcjmyt" path="res://atores/tank3.tscn" id="17_tt0bb"]
 [ext_resource type="Texture2D" uid="uid://ces01gsjkj7as" path="res://craftpix-net-507107-free-soldier-sprite-sheets-pixel-art/War1/Pale/sky.png" id="18_bt7v1"]
 [ext_resource type="Texture2D" uid="uid://bo2q4mnwagp6d" path="res://craftpix-net-507107-free-soldier-sprite-sheets-pixel-art/War1/Pale/crater3.png" id="18_gtqm5"]
 [ext_resource type="Texture2D" uid="uid://dprj6wro8ydap" path="res://craftpix-net-507107-free-soldier-sprite-sheets-pixel-art/War1/Pale/crater2.png" id="19_edyxn"]
@@ -3463,15 +3463,6 @@ sources/3 = SubResource("TileSetAtlasSource_i4uhx")
 
 [node name="mundo-teste" type="Node2D"]
 
-[node name="Area2D36" parent="." instance=ExtResource("1_64u1x")]
-position = Vector2(1495, 703)
-
-[node name="Area2D37" parent="." instance=ExtResource("1_64u1x")]
-position = Vector2(216, 1023)
-
-[node name="Area2D38" parent="." instance=ExtResource("1_64u1x")]
-position = Vector2(1399, 1136)
-
 [node name="player" parent="." instance=ExtResource("5_5n4ds")]
 position = Vector2(1417, 619)
 collision_mask = 14
@@ -3513,9 +3504,6 @@ distance = 400
 movie_horizontal = false
 
 [node name="Area2D5" parent="." instance=ExtResource("1_1sh8o")]
-position = Vector2(1640, 840)
-
-[node name="Area2D35" parent="." instance=ExtResource("1_1sh8o")]
 position = Vector2(1640, 840)
 
 [node name="Area2D4" parent="." instance=ExtResource("1_1sh8o")]
@@ -3764,3 +3752,8 @@ texture_filter = 1
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("20_nn8i5")
 centered = false
+
+[node name="Area2D35" parent="." instance=ExtResource("17_tt0bb")]
+position = Vector2(1623, 688)
+
+[connection signal="body_entered" from="Area2D35" to="player" method="_on_area_2d_35_body_entered"]
